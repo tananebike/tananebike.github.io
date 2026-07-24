@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>XE ĐIỆN TÂN AN | PIN XE ĐIỆN | PIN CÔNG CỤ | PIN LƯU TRỮ</title>
-    <meta name="description" content="Mua bán – Sửa chữa xe điện – Cung cấp pin xe điện, pin máy công cụ, pin lưu trữ.">
+    <meta name="description" content="Mua bán – Sửa chữa xe điện – Cung cấp pin xe điện, pin máy công cụ, pin lưu trữ, pin NLMT, bình ắc quy.">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -19,7 +19,7 @@
             </div>
 
             <div class="search-box">
-                <input type="text" placeholder="Tìm xe điện, pin, phụ tùng...">
+                <input type="text" placeholder="Tìm xe đạp điện, xe máy điện, pin, bình ắc quy...">
                 <button type="button">Tìm kiếm</button>
             </div>
 
@@ -32,16 +32,33 @@
     <div class="menu-overlay" id="menu-overlay"></div>
     <nav class="side-menu" id="side-menu">
         <div class="side-menu-header">
-            <h3>DANH MỤC MENU</h3>
+            <h3>DANH MỤC SẢN PHẨM</h3>
             <span class="close-btn" id="close-menu-btn">✖</span>
         </div>
-        <ul>
+        <ul class="menu-list">
             <li><a href="#trang-chu">🏠 Trang Chủ</a></li>
-            <li><a href="#pin-xe-dien">🔋 Pin Xe Điện</a></li>
-            <li><a href="#pin-cong-cu">🛠️ Pin Công Cụ</a></li>
-            <li><a href="#pin-luu-tru">⚡ Pin Lưu Trữ</a></li>
-            <li><a href="#xe-dien">🛵 Xe Điện</a></li>
-            <li><a href="#sua-chua">🔧 Sửa Chữa</a></li>
+            
+            <li><a href="#xe-dap-dien">🚲 Xe Đạp Điện</a></li>
+
+            <li><a href="#xe-may-dien">🛵 Xe Máy Điện</a></li>
+
+            <li class="has-submenu">
+                <a href="javascript:void(0)" class="submenu-toggle">
+                    <span>🔋 PIN</span>
+                    <span class="arrow">▼</span>
+                </a>
+                <ul class="submenu">
+                    <li><a href="#pin-xe-dien">⚡ Pin Xe Điện</a></li>
+                    <li><a href="#pin-cong-cu">🛠️ Pin Công Cụ</a></li>
+                    <li><a href="#pin-luu-tru">🔋 Pin Lưu Trữ</a></li>
+                    <li><a href="#pin-nlmt">☀️ Pin NLMT (Mặt Trời)</a></li>
+                </ul>
+            </li>
+
+            <li><a href="#binh-acquy">🪫 Bình Ắc Quy</a></li>
+
+            <li><a href="#tin-tuc">📰 Tin Tức</a></li>
+
             <li><a href="#lien-he">📞 Liên Hệ</a></li>
         </ul>
     </nav>
@@ -49,18 +66,22 @@
     <div class="quick-nav">
         <div class="container">
             <ul class="quick-cat-list">
-                <li><a href="#pin-xe-dien"><div class="icon-circle">🔋</div><span>Pin Xe Điện</span></a></li>
+                <li><a href="#xe-dap-dien"><div class="icon-circle">🚲</div><span>Xe Đạp Điện</span></a></li>
+                <li><a href="#xe-may-dien"><div class="icon-circle">🛵</div><span>Xe Máy Điện</span></a></li>
+                <li><a href="#pin-xe-dien"><div class="icon-circle">⚡</div><span>Pin Xe Điện</span></a></li>
                 <li><a href="#pin-cong-cu"><div class="icon-circle">🛠️</div><span>Pin Công Cụ</span></a></li>
-                <li><a href="#pin-luu-tru"><div class="icon-circle">⚡</div><span>Pin Lưu Trữ</span></a></li>
-                <li><a href="#xe-dien"><div class="icon-circle">🛵</div><span>Xe Điện</span></a></li>
-                <li><a href="#sua-chua"><div class="icon-circle">🔧</div><span>Sửa Chữa</span></a></li>
+                <li><a href="#pin-luu-tru"><div class="icon-circle">🔋</div><span>Pin Lưu Trữ</span></a></li>
+                <li><a href="#pin-nlmt"><div class="icon-circle">☀️</div><span>Pin NLMT</span></a></li>
+                <li><a href="#binh-acquy"><div class="icon-circle">🪫</div><span>Bình Ắc Quy</span></a></li>
+                <li><a href="#tin-tuc"><div class="icon-circle">📰</div><span>Tin Tức</span></a></li>
+                <li><a href="#lien-he"><div class="icon-circle">📞</div><span>Liên Hệ</span></a></li>
             </ul>
         </div>
     </div>
 
     <main class="container main-content">
         <section class="banner-section">
-            <img src="https://via.placeholder.com/1200x400/0056b3/ffffff?text=XE+ĐIỆN+TÂN+AN+-+CHUYÊN+GIA+VỀ+PIN" alt="Banner Xe Điện Tân An" class="main-banner">
+            <img src="https://via.placeholder.com/1200x400/0056b3/ffffff?text=XE+ĐIỆN+TÂN+AN+-+XE+ĐẠP+ĐIỆN+-+XE+MÁY+ĐIỆN+-+PIN+-+ẮC+QUY" alt="Banner Xe Điện Tân An" class="main-banner">
         </section>
 
         <section class="product-section">
@@ -73,20 +94,20 @@
                 <article class="product-card">
                     <span class="badge sale">HOT</span>
                     <div class="product-img-box">
-                        <img src="https://via.placeholder.com/300x300/f4f4f4/333?text=Pin+Xe+Dien" alt="Pin Xe Điện">
+                        <img src="https://via.placeholder.com/300x300/f4f4f4/333?text=Xe+Dap+Dien" alt="Xe Đạp Điện">
                     </div>
                     <div class="product-info">
-                        <h3 class="product-name">Khối Pin Xe Điện Lithium Chính Hãng</h3>
+                        <h3 class="product-name">Xe Đạp Điện Mới Chính Hãng</h3>
                         <p class="price-current">Liên hệ</p>
                     </div>
                 </article>
 
                 <article class="product-card">
                     <div class="product-img-box">
-                        <img src="https://via.placeholder.com/300x300/f4f4f4/333?text=Pin+May+Cong+Cu" alt="Pin Công Cụ">
+                        <img src="https://via.placeholder.com/300x300/f4f4f4/333?text=Pin+Xe+Dien" alt="Pin Xe Điện">
                     </div>
                     <div class="product-info">
-                        <h3 class="product-name">Pin Máy Khoan, Cưa Cầm Tay Dòng Xả Cao</h3>
+                        <h3 class="product-name">Khối Pin Xe Điện Lithium Cao Cấp</h3>
                         <p class="price-current">Liên hệ</p>
                     </div>
                 </article>
@@ -97,7 +118,7 @@
     <footer class="footer-main">
         <div class="container footer-content">
             <h3>XE ĐIỆN TÂN AN</h3>
-            <p>Mua bán – Sửa chữa xe điện – Cung cấp pin xe điện, pin máy công cụ, pin lưu trữ.</p>
+            <p>Mua bán – Sửa chữa xe điện – Cung cấp pin xe điện, pin máy công cụ, pin lưu trữ, pin NLMT, bình ắc quy.</p>
             <hr style="border-color: #444; margin: 15px 0;">
             <p>📍 <strong>Địa chỉ:</strong> Km8 Dt767, Xã Tân An, Tp.Đồng Nai</p>
             <p>📞 <strong>Hotline/Zalo:</strong> <a href="tel:0707915188">0707 915 188</a></p>
