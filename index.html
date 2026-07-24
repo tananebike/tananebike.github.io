@@ -10,26 +10,31 @@
 <body>
 
     <header class="header-main">
-        <div class="header-top">
-            <div class="menu-toggle" id="mobile-menu-btn">☰</div>
-            
-            <div class="logo-wrapper">
-                <a href="index.html">
-                    <img src="link-logo-tan-an.png" alt="Xe Điện Tân An" id="main-logo">
+        <div class="container header-flex">
+            <div class="header-left">
+                <button class="menu-toggle" id="mobile-menu-btn">☰</button>
+                <a href="index.html" class="logo-box">
+                    <img src="https://via.placeholder.com/180x45/0056b3/ffffff?text=XE+ĐIỆN+TÂN+AN" alt="Xe Điện Tân An" id="main-logo">
                 </a>
             </div>
-            
-            <div class="cart-icon" style="font-size: 20px;">🛒</div>
-        </div>
 
-        <div class="search-box">
-            <input type="text" placeholder="Tìm xe điện, pin, phụ tùng...">
-            <button type="button">Tìm kiếm</button>
+            <div class="search-box">
+                <input type="text" placeholder="Tìm xe điện, pin, phụ tùng...">
+                <button type="button">Tìm kiếm</button>
+            </div>
+
+            <div class="header-right">
+                <div class="cart-box">🛒 <span class="cart-count">0</span></div>
+            </div>
         </div>
     </header>
 
+    <div class="menu-overlay" id="menu-overlay"></div>
     <nav class="side-menu" id="side-menu">
-        <div class="close-btn" id="close-menu-btn">✖ Đóng</div>
+        <div class="side-menu-header">
+            <h3>DANH MỤC MENU</h3>
+            <span class="close-btn" id="close-menu-btn">✖</span>
+        </div>
         <ul>
             <li><a href="#trang-chu">🏠 Trang Chủ</a></li>
             <li><a href="#pin-xe-dien">🔋 Pin Xe Điện</a></li>
@@ -40,26 +45,27 @@
             <li><a href="#lien-he">📞 Liên Hệ</a></li>
         </ul>
     </nav>
-    <div class="menu-overlay" id="menu-overlay"></div>
 
-    <nav class="quick-categories">
-        <ul class="category-list">
-            <li><a href="#pin-xe-dien">🔋 Pin Xe Điện</a></li>
-            <li><a href="#pin-cong-cu">🛠️ Pin Công Cụ</a></li>
-            <li><a href="#pin-luu-tru">⚡ Pin Lưu Trữ</a></li>
-            <li><a href="#xe-dien">🛵 Xe Điện</a></li>
-            <li><a href="#sua-chua">🔧 Sửa Chữa</a></li>
-        </ul>
-    </nav>
+    <div class="quick-nav">
+        <div class="container">
+            <ul class="quick-cat-list">
+                <li><a href="#pin-xe-dien"><div class="icon-circle">🔋</div><span>Pin Xe Điện</span></a></li>
+                <li><a href="#pin-cong-cu"><div class="icon-circle">🛠️</div><span>Pin Công Cụ</span></a></li>
+                <li><a href="#pin-luu-tru"><div class="icon-circle">⚡</div><span>Pin Lưu Trữ</span></a></li>
+                <li><a href="#xe-dien"><div class="icon-circle">🛵</div><span>Xe Điện</span></a></li>
+                <li><a href="#sua-chua"><div class="icon-circle">🔧</div><span>Sửa Chữa</span></a></li>
+            </ul>
+        </div>
+    </div>
 
-    <main class="main-content">
+    <main class="container main-content">
         <section class="banner-section">
-            <img src="https://via.placeholder.com/800x350/0056b3/ffffff?text=XE+ĐIỆN+TÂN+AN+-+CHUYÊN+GIA+VỀ+PIN" alt="Banner Xe Điện Tân An" class="main-banner">
+            <img src="https://via.placeholder.com/1200x400/0056b3/ffffff?text=XE+ĐIỆN+TÂN+AN+-+CHUYÊN+GIA+VỀ+PIN" alt="Banner Xe Điện Tân An" class="main-banner">
         </section>
 
         <section class="product-section">
             <div class="section-heading">
-                <h2>Sản Phẩm Nổi Bật</h2>
+                <h2>SẢN PHẨM NỔI BẬT</h2>
                 <a href="#" class="view-all">Xem tất cả ➔</a>
             </div>
             
@@ -89,10 +95,10 @@
     </main>
 
     <footer class="footer-main">
-        <div class="footer-content">
+        <div class="container footer-content">
             <h3>XE ĐIỆN TÂN AN</h3>
             <p>Mua bán – Sửa chữa xe điện – Cung cấp pin xe điện, pin máy công cụ, pin lưu trữ.</p>
-            <hr style="border-color: #444; margin: 10px 0;">
+            <hr style="border-color: #444; margin: 15px 0;">
             <p>📍 <strong>Địa chỉ:</strong> Km8 Dt767, Xã Tân An, Tp.Đồng Nai</p>
             <p>📞 <strong>Hotline/Zalo:</strong> <a href="tel:0707915188">0707 915 188</a></p>
             
@@ -108,9 +114,10 @@
     </footer>
 
     <div class="floating-actions">
-        <a href="tel:0707915188" class="btn-float call">📞</a>
+        <a href="tel:0707915188" class="btn-float call" title="Gọi điện">📞</a>
         <a href="https://zalo.me/0707915188" class="btn-float zalo" target="_blank">Zalo</a>
     </div>
 
+    <script src="script.js"></script>
 </body>
 </html>
