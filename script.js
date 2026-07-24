@@ -47,5 +47,31 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+// ================= XỬ LÝ SỰ KIỆN MENU BÊN TRÁI =================
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const sideMenu = document.getElementById('side-menu');
+    const closeBtn = document.getElementById('close-menu-btn');
+    const overlay = document.getElementById('menu-overlay');
 
+    // Sự kiện 1: Bấm nút ☰ thì mở menu và bật lớp phủ
+    menuBtn.addEventListener('click', function() {
+        sideMenu.classList.add('active');
+        overlay.classList.add('active');
+        // Vô hiệu hóa cuộn trang nền khi mở menu
+        document.body.style.overflow = 'hidden'; 
+    });
+
+    // Sự kiện 2: Bấm nút ✖ thì đóng menu
+    closeBtn.addEventListener('click', closeMenu);
+
+    // Sự kiện 3: Bấm ra ngoài vùng menu (vùng tối) thì đóng menu
+    overlay.addEventListener('click', closeMenu);
+
+    // Hàm đóng menu dùng chung
+    function closeMenu() {
+        sideMenu.classList.remove('active');
+        overlay.classList.remove('active');
+        // Khôi phục cuộn trang
+        document.body.style.overflow = 'auto'; 
+    }v
 });
