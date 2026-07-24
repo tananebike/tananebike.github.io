@@ -21,7 +21,6 @@ body {
 a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
 
-/* KHUNG GOM GIỮA CHO MÁY TÍNH (1200PX) */
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -59,7 +58,6 @@ ul { list-style: none; }
     color: var(--primary-color);
 }
 
-/* KHÓA KÍCH THƯỚC LOGO TUYỆT ĐỐI */
 .logo-box {
     display: block;
     max-height: 45px;
@@ -70,7 +68,6 @@ ul { list-style: none; }
     object-fit: contain;
 }
 
-/* SEARCH BOX */
 .search-box {
     flex: 1;
     max-width: 500px;
@@ -110,20 +107,21 @@ ul { list-style: none; }
     right: -10px;
 }
 
-/* ================= SIDE MENU (KHẮC PHỤC LỖI ẨN/HIỆN) ================= */
+/* ================= SIDE MENU & SUBMENU (MENU CHA - CON) ================= */
 .side-menu {
     position: fixed;
     top: 0;
-    left: -300px; /* Ẩn ra khỏi màn hình */
+    left: -300px;
     width: 280px;
     height: 100vh;
     background: #fff;
     z-index: 10001;
     transition: left 0.3s ease;
     box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+    overflow-y: auto;
 }
 .side-menu.active {
-    left: 0; /* Hiện menu khi bấm */
+    left: 0;
 }
 
 .side-menu-header {
@@ -136,12 +134,46 @@ ul { list-style: none; }
 }
 .close-btn { cursor: pointer; font-size: 18px; }
 
-.side-menu ul { padding: 15px; }
-.side-menu ul li a {
-    display: block;
+.menu-list { padding: 10px 15px; }
+.menu-list > li > a, .submenu-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 12px 0;
     border-bottom: 1px solid #eee;
     font-weight: bold;
+    font-size: 15px;
+}
+
+/* Kiểu dáng cho Menu Con (Submenu PIN) */
+.submenu {
+    display: none; /* Mặc định ẩn */
+    background: #f8f9fa;
+    padding-left: 15px;
+    border-left: 3px solid var(--primary-color);
+    margin: 5px 0 10px 0;
+}
+.submenu li a {
+    display: block;
+    padding: 8px 0;
+    font-size: 14px;
+    color: #555;
+    font-weight: normal;
+    border-bottom: 1px dashed #e0e0e0;
+}
+.submenu li:last-child a { border-bottom: none; }
+
+/* Khi mở Submenu */
+.has-submenu.open .submenu {
+    display: block;
+}
+.has-submenu.open .arrow {
+    transform: rotate(180deg);
+}
+.arrow {
+    font-size: 11px;
+    transition: transform 0.3s ease;
+    color: #888;
 }
 
 .menu-overlay {
@@ -156,7 +188,7 @@ ul { list-style: none; }
 }
 .menu-overlay.active { display: block; }
 
-/* ================= DANH MỤC ICON TRÒN ================= */
+/* ================= QUICK NAV (DANH MỤC TRÒN CUỘN NGANG) ================= */
 .quick-nav {
     background: #fff;
     padding: 15px 0;
@@ -164,16 +196,21 @@ ul { list-style: none; }
 }
 .quick-cat-list {
     display: flex;
-    justify-content: center;
-    gap: 25px;
+    gap: 20px;
     overflow-x: auto;
+    padding-bottom: 5px;
 }
+.quick-cat-list::-webkit-scrollbar { height: 4px; }
+.quick-cat-list::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
+
 .quick-cat-list li a {
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: bold;
+    min-width: 75px;
+    text-align: center;
 }
 .icon-circle {
     width: 50px;
@@ -184,7 +221,7 @@ ul { list-style: none; }
     align-items: center;
     justify-content: center;
     font-size: 22px;
-    margin-bottom: 5px;
+    margin-bottom: 6px;
     border: 1px solid #cce0ff;
 }
 
