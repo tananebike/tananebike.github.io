@@ -10,16 +10,37 @@
 <body>
 
     <header class="header-main">
-        <div class="logo-wrapper">
-            <a href="index.html">
-                <img src="link-logo-tan-an.png" alt="Xe Điện Tân An" id="main-logo">
-            </a>
+        <div class="header-top">
+            <div class="menu-toggle" id="mobile-menu-btn">☰</div>
+            
+            <div class="logo-wrapper">
+                <a href="index.html">
+                    <img src="link-logo-tan-an.png" alt="Xe Điện Tân An" id="main-logo">
+                </a>
+            </div>
+            
+            <div class="cart-icon" style="font-size: 20px;">🛒</div>
         </div>
+
         <div class="search-box">
             <input type="text" placeholder="Tìm xe điện, pin, phụ tùng...">
             <button type="button">Tìm kiếm</button>
         </div>
     </header>
+
+    <nav class="side-menu" id="side-menu">
+        <div class="close-btn" id="close-menu-btn">✖ Đóng</div>
+        <ul>
+            <li><a href="#trang-chu">🏠 Trang Chủ</a></li>
+            <li><a href="#pin-xe-dien">🔋 Pin Xe Điện</a></li>
+            <li><a href="#pin-cong-cu">🛠️ Pin Công Cụ</a></li>
+            <li><a href="#pin-luu-tru">⚡ Pin Lưu Trữ</a></li>
+            <li><a href="#xe-dien">🛵 Xe Điện</a></li>
+            <li><a href="#sua-chua">🔧 Sửa Chữa</a></li>
+            <li><a href="#lien-he">📞 Liên Hệ</a></li>
+        </ul>
+    </nav>
+    <div class="menu-overlay" id="menu-overlay"></div>
 
     <nav class="quick-categories">
         <ul class="category-list">
