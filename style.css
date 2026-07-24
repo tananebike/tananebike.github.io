@@ -225,3 +225,77 @@ ul { list-style: none; }
 }
 .btn-float.call { background-color: #27ae60; }
 .btn-float.zalo { background-color: #0068ff; font-size: 13px; }
+
+/* ================= BỔ SUNG: BỐ CỤC HEADER MỚI ================= */
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+.menu-toggle {
+    font-size: 26px;
+    cursor: pointer;
+    color: var(--primary-color);
+    padding: 5px;
+}
+/* Khóa lại logo để không bao giờ phá bố cục khi có thêm nút menu */
+.logo-wrapper {
+    width: 60%;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ================= BỔ SUNG: MENU TRƯỢT BÊN TRÁI (SIDE MENU) ================= */
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: -300px; /* Ẩn menu ra ngoài màn hình */
+    width: 260px;
+    height: 100vh;
+    background-color: #fff;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+    z-index: 1001; /* Nổi lên trên cùng */
+    transition: left 0.3s ease; /* Hiệu ứng trượt mượt mà */
+    padding: 20px;
+}
+.side-menu.active {
+    left: 0; /* Kéo menu hiển thị ra */
+}
+.side-menu .close-btn {
+    font-size: 18px;
+    text-align: right;
+    cursor: pointer;
+    margin-bottom: 25px;
+    color: #e74c3c;
+    font-weight: bold;
+}
+.side-menu ul {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.side-menu ul li a {
+    font-size: 16px;
+    font-weight: bold;
+    display: block;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+/* ================= LỚP PHỦ MỜ KHI MỞ MENU ================= */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0,0,0,0.6);
+    z-index: 1000;
+    display: none; /* Ẩn mặc định */
+}
+.menu-overlay.active {
+    display: block; /* Hiện lớp phủ khi menu mở */
+}
