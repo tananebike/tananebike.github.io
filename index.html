@@ -3,316 +3,292 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thế Giới Xe Điện - Template</title>
+    <title>Thương Hiệu Của Bạn | Cửa Hàng Trực Tuyến</title>
     <style>
-        /* ================= RESET & CƠ BẢN ================= */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
+        /* ================= BIẾN MÀU SẮC (TÙY CHỈNH TẠI ĐÂY) ================= */
+        :root {
+            --primary-color: #1a365d; /* Màu chủ đạo (VD: Xanh Navy) */
+            --accent-color: #ff6b6b; /* Màu điểm nhấn (Nút bấm, giá tiền) */
+            --bg-color: #f8f9fa; /* Màu nền web */
+            --card-bg: #ffffff;
+            --text-main: #2d3748;
+            --text-muted: #718096;
         }
-        body {
-            background-color: #f4f4f4;
-            color: #333;
-            padding-bottom: 60px; /* Chừa không gian cho nút nổi dưới cùng */
-        }
-        a { text-decoration: none; color: inherit; }
-        ul { list-style: none; }
 
-        /* ================= HEADER ================= */
+        /* ================= RESET & CƠ BẢN ================= */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: var(--bg-color); color: var(--text-main); padding-bottom: 80px; }
+        a { text-decoration: none; color: inherit; }
+        
+        /* ================= HEADER HIỆN ĐẠI ================= */
         header {
-            background-color: #2b2b2b;
-            padding: 10px;
-        }
-        .logo-container {
-            text-align: center;
-            margin-bottom: 10px;
-        }
-        /* KIỂM SOÁT LOGO: Đảm bảo không bao giờ phá bố cục */
-        .logo-container img {
-            max-width: 100%;
-            height: auto;
-            max-height: 50px; /* Giới hạn chiều cao cứng */
-            object-fit: contain;
+            background-color: var(--card-bg);
+            padding: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
         
-        .search-bar {
-            display: flex;
-            margin-bottom: 10px;
-        }
-        .search-bar input {
-            flex: 1;
-            padding: 10px;
-            border: none;
-            border-radius: 4px 0 0 4px;
-            outline: none;
-        }
-        .search-bar button {
-            background-color: #d70018;
-            color: white;
-            border: none;
-            padding: 0 15px;
-            border-radius: 0 4px 4px 0;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        .header-contact {
-            display: flex;
-            justify-content: space-around;
-            color: #00ff00;
-            font-size: 12px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .header-nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: white;
-            border-top: 1px solid #444;
-            padding-top: 10px;
-        }
-        .menu-icon { font-size: 24px; cursor: pointer; }
-        .cart-icon { font-size: 14px; font-weight: bold; }
-        .cart-icon span { background: orange; color: white; border-radius: 50%; padding: 2px 6px; }
-
-        /* ================= DANH MỤC (CUỘN NGANG) ================= */
-        .categories {
-            background-color: #3a3a3a;
-            display: flex;
-            overflow-x: auto;
-            padding: 10px;
-            gap: 15px;
-            color: white;
-            scrollbar-width: none; /* Ẩn scrollbar Firefox */
-        }
-        .categories::-webkit-scrollbar { display: none; } /* Ẩn scrollbar Chrome/Safari */
-        .category-item {
-            text-align: center;
-            min-width: 70px;
-            font-size: 12px;
-        }
-        .category-item img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            border: 2px solid #555;
-            margin-bottom: 5px;
-        }
-
-        /* ================= BANNER ================= */
-        .banner-section img {
+        /* KIỂM SOÁT LOGO TUYỆT ĐỐI */
+        .brand-logo-wrapper {
             width: 100%;
-            height: auto;
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        /* ================= SẢN PHẨM ================= */
-        .section-title {
-            background: linear-gradient(to right, #8b0000, #d70018);
-            color: white;
-            padding: 10px;
-            font-weight: bold;
+            height: 45px; /* Khóa cứng chiều cao */
+            margin-bottom: 15px;
             display: flex;
+            justify-content: center;
             align-items: center;
-            margin: 10px 0;
-            border-radius: 4px;
-        }
-        .section-title span { margin-left: 10px; }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr); /* 2 cột trên Mobile */
-            gap: 10px;
-            padding: 0 10px;
-        }
-        .product-card {
-            background: white;
-            border-radius: 8px;
-            padding: 10px;
-            text-align: center;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            position: relative;
-        }
-        .product-card img {
-            width: 100%;
-            height: auto;
-            max-height: 150px;
-            object-fit: contain;
-            margin-bottom: 10px;
-        }
-        .product-name {
-            font-size: 13px;
-            font-weight: bold;
-            margin-bottom: 5px;
-            height: 32px;
             overflow: hidden;
         }
-        .product-price {
-            color: #d70018;
-            font-weight: bold;
-            font-size: 14px;
-        }
-        .product-old-price {
-            text-decoration: line-through;
-            color: #999;
-            font-size: 12px;
-            margin-bottom: 5px;
-        }
-        .product-badge {
-            position: absolute;
-            top: 5px;
-            left: 5px;
-            background: red;
-            color: white;
-            font-size: 10px;
-            padding: 3px 5px;
-            border-radius: 3px;
+        .brand-logo-wrapper img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain; /* Thu phóng tỷ lệ chuẩn, không méo, không tràn */
         }
 
-        /* ================= NÚT NỔI (FLOATING BUTTONS) ================= */
-        .floating-right {
-            position: fixed;
-            right: 10px;
-            bottom: 20%;
+        .search-container {
+            display: flex;
+            background: var(--bg-color);
+            border-radius: 25px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+        }
+        .search-container input {
+            flex: 1;
+            padding: 12px 20px;
+            border: none;
+            background: transparent;
+            outline: none;
+            font-size: 14px;
+        }
+        .search-container button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        /* ================= DANH MỤC SCROLL ================= */
+        .quick-categories {
+            display: flex;
+            overflow-x: auto;
+            padding: 20px 15px;
+            gap: 20px;
+            background: var(--card-bg);
+            scrollbar-width: none;
+            border-bottom: 1px solid #edf2f7;
+        }
+        .quick-categories::-webkit-scrollbar { display: none; }
+        
+        .cat-item {
             display: flex;
             flex-direction: column;
-            gap: 15px;
-            z-index: 100;
+            align-items: center;
+            min-width: 75px;
+            gap: 8px;
         }
-        .float-btn {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            background-color: #0084ff; /* Messenger blue */
-            color: white;
+        .cat-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--bg-color);
+            border-radius: 16px; /* Bo góc hiện đại thay vì hình tròn */
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-            text-decoration: none;
-            font-size: 20px;
+            font-size: 24px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            transition: transform 0.2s;
         }
-        .float-btn.zalo { background-color: #0068ff; }
-        .float-btn.hotline { background-color: #ff6600; }
+        .cat-item span { font-size: 12px; font-weight: 600; text-align: center; }
 
-        .btn-tra-gop {
-            position: fixed;
-            bottom: 10px;
-            left: 10px;
-            background: linear-gradient(to bottom, #ff0000, #8b0000);
-            color: yellow;
-            font-weight: bold;
+        /* ================= BANNER ================= */
+        .promo-banner {
+            margin: 15px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .promo-banner img { width: 100%; display: block; object-fit: cover; }
+
+        /* ================= LƯỚI SẢN PHẨM ================= */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             padding: 10px 15px;
-            border-radius: 8px;
-            border: 2px solid #fff;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.5);
-            z-index: 100;
+            margin-top: 10px;
         }
+        .section-header h2 { font-size: 18px; color: var(--primary-color); border-left: 4px solid var(--accent-color); padding-left: 10px; }
+        .section-header a { font-size: 13px; color: var(--accent-color); font-weight: 600; }
 
-        /* ================= FOOTER ================= */
-        footer {
-            background-color: #1a1a1a;
-            color: #ccc;
-            padding: 20px 10px;
-            font-size: 13px;
-            line-height: 1.6;
-            margin-top: 20px;
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            padding: 0 15px;
         }
-        footer h3 { color: white; margin-bottom: 10px; }
+        .product-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #f0f0f0;
+        }
+        .tag-sale {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: var(--accent-color);
+            color: white;
+            font-size: 11px;
+            font-weight: bold;
+            padding: 4px 8px;
+            border-radius: 6px;
+            z-index: 2;
+        }
+        .product-card img {
+            width: 100%;
+            height: 140px;
+            object-fit: contain;
+            margin-bottom: 12px;
+            transition: transform 0.3s ease;
+        }
+        .product-card:hover img { transform: scale(1.05); }
+        .product-title {
+            font-size: 13px;
+            font-weight: 600;
+            line-height: 1.4;
+            margin-bottom: 8px;
+            color: var(--text-main);
+            display: -webkit-box;
+            -webkit-line-clamp: 2; /* Cắt chữ nếu quá 2 dòng */
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            flex-grow: 1;
+        }
+        .price-row { display: flex; flex-direction: column; gap: 2px; }
+        .price-current { color: var(--accent-color); font-weight: 800; font-size: 15px; }
+        .price-old { color: var(--text-muted); text-decoration: line-through; font-size: 12px; }
+
+        /* ================= WIDGET LIÊN HỆ NỔI ================= */
+        .contact-widgets {
+            position: fixed;
+            right: 15px;
+            bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 999;
+        }
+        .widget-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 22px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .btn-call { background: #00b894; }
+        .btn-chat { background: #0984e3; }
+        .btn-zalo { background: #0068ff; font-size: 14px; font-weight: bold; }
+
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo-container">
-            <img src="https://via.placeholder.com/300x80?text=THE+GIOI+XE+DIEN" alt="Logo">
+        <div class="brand-logo-wrapper">
+            <img src="https://via.placeholder.com/400x100/1a365d/ffffff?text=MY+BRAND+LOGO" alt="Logo Thương Hiệu">
         </div>
-        <div class="search-bar">
-            <input type="text" placeholder="Nhập từ khóa tìm kiếm...">
-            <button>🔍</button>
-        </div>
-        <div class="header-contact">
-            <span>📱 088 638 8888</span>
-            <span>📱 084 978 8888</span>
-        </div>
-        <div class="header-nav">
-            <div class="menu-icon">☰</div>
-            <div class="cart-icon">🛒 Giỏ Hàng <span>0</span></div>
+        <div class="search-container">
+            <input type="text" placeholder="Bạn đang tìm gì hôm nay?">
+            <button>Tìm kiếm</button>
         </div>
     </header>
 
-    <div class="categories">
-        <div class="category-item">
-            <img src="https://via.placeholder.com/40/ff0000/fff?text=HOT" alt="Bán chạy">
-            <p>Bán Chạy</p>
-        </div>
-        <div class="category-item">
-            <img src="https://via.placeholder.com/40/800080/fff?text=XD" alt="Xe điện">
-            <p>Xe điện</p>
-        </div>
-        <div class="category-item">
-            <img src="https://via.placeholder.com/40/800080/fff?text=XMD" alt="Xe máy điện">
-            <p>Xe máy điện</p>
-        </div>
-        <div class="category-item">
-            <img src="https://via.placeholder.com/40/800080/fff?text=XDD" alt="Xe đạp điện">
-            <p>Xe đạp điện</p>
-        </div>
-        <div class="category-item">
-            <img src="https://via.placeholder.com/40/800080/fff?text=50" alt="Xe Máy 50cc">
-            <p>Xe Máy 50cc</p>
-        </div>
+    <div class="quick-categories">
+        <a href="#" class="cat-item">
+            <div class="cat-icon">🔥</div>
+            <span>Khuyến mãi</span>
+        </a>
+        <a href="#" class="cat-item">
+            <div class="cat-icon">🛵</div>
+            <span>Xe Tay Ga</span>
+        </a>
+        <a href="#" class="cat-item">
+            <div class="cat-icon">🚲</div>
+            <span>Xe Đạp Điện</span>
+        </a>
+        <a href="#" class="cat-item">
+            <div class="cat-icon">⚙️</div>
+            <span>Phụ Tùng</span>
+        </a>
+        <a href="#" class="cat-item">
+            <div class="cat-icon">🛡️</div>
+            <span>Bảo Hành</span>
+        </a>
     </div>
 
-    <div class="banner-section">
-        <img src="https://via.placeholder.com/800x400/800080/ffffff?text=SUPER+SUMMER+SALE" alt="Khuyến mãi">
-        <img src="https://via.placeholder.com/800x200/f0e6d2/333?text=CUU+HO+TAN+NOI" alt="Cứu hộ">
+    <div class="promo-banner">
+        <img src="https://via.placeholder.com/800x350/ff6b6b/ffffff?text=BANNER+CHIEN+DICH+CUA+BAN" alt="Banner">
     </div>
 
-    <div style="padding: 0 10px;">
-        <div class="section-title">
-            🛡️ <span>XE MÁY ĐIỆN</span>
-        </div>
+    <div class="section-header">
+        <h2>Sản Phẩm Nổi Bật</h2>
+        <a href="#">Xem tất cả ➔</a>
     </div>
 
     <div class="product-grid">
-        <div class="product-card">
-            <div class="product-badge">Xe Không Cần Bằng Lái</div>
-            <img src="https://via.placeholder.com/300x300/eee/999?text=Xe+Dibao+LS007" alt="Xe máy điện">
-            <div class="product-name">Xe Máy Điện Dibao LS007</div>
-            <div class="product-price">23,500,000 Đ</div>
-            <div class="product-old-price">27,590,000 Đ</div>
-            <div style="color: gold; font-size: 12px;">★★★★★</div>
-        </div>
+        <a href="#" class="product-card">
+            <span class="tag-sale">-15%</span>
+            <img src="https://via.placeholder.com/300x300/f8f9fa/1a365d?text=Hinh+Anh+SP" alt="Sản phẩm">
+            <div class="product-title">Tên Sản Phẩm Của Bạn Sẽ Hiển Thị Ở Đây</div>
+            <div class="price-row">
+                <span class="price-current">18.500.000 ₫</span>
+                <span class="price-old">21.500.000 ₫</span>
+            </div>
+        </a>
+
+        <a href="#" class="product-card">
+            <span class="tag-sale">Mới</span>
+            <img src="https://via.placeholder.com/300x300/f8f9fa/1a365d?text=Hinh+Anh+SP" alt="Sản phẩm">
+            <div class="product-title">Xe Máy Điện Kiểu Dáng Hiện Đại 2026</div>
+            <div class="price-row">
+                <span class="price-current">22.000.000 ₫</span>
+            </div>
+        </a>
         
-        <div class="product-card">
-            <div class="product-badge">Xe Không Cần Bằng Lái</div>
-            <img src="https://via.placeholder.com/300x300/eee/999?text=Xe+Dibao+Shine" alt="Xe máy điện">
-            <div class="product-name">Xe Máy Điện Dibao Shine</div>
-            <div class="product-price">23,500,000 Đ</div>
-            <div class="product-old-price">25,490,000 Đ</div>
-            <div style="color: gold; font-size: 12px;">★★★★★</div>
-        </div>
+        <a href="#" class="product-card">
+            <img src="https://via.placeholder.com/300x300/f8f9fa/1a365d?text=Hinh+Anh+SP" alt="Sản phẩm">
+            <div class="product-title">Phụ Tùng Chính Hãng Nhập Khẩu</div>
+            <div class="price-row">
+                <span class="price-current">1.200.000 ₫</span>
+                <span class="price-old">1.500.000 ₫</span>
+            </div>
+        </a>
+
+        <a href="#" class="product-card">
+            <img src="https://via.placeholder.com/300x300/f8f9fa/1a365d?text=Hinh+Anh+SP" alt="Sản phẩm">
+            <div class="product-title">Bộ Ắc Quy Hiệu Năng Cao Bảo Hành 1 Đổi 1</div>
+            <div class="price-row">
+                <span class="price-current">2.800.000 ₫</span>
+            </div>
+        </a>
     </div>
 
-    <footer>
-        <h3>THẾ GIỚI XE ĐIỆN</h3>
-        <p>Công Ty TNHH Thế Giới Xe Đạp Điện</p>
-        <p>MST/ĐKKD/QĐTL: 0106775832</p>
-        <p>Số 264 Tôn Đức Thắng, Phường Ô Chợ Dừa, Tp. Hà Nội</p>
-        <p>Điện thoại: 0422108888</p>
-    </footer>
-
-    <a href="#" class="btn-tra-gop">MUA TRẢ GÓP</a>
-    
-    <div class="floating-right">
-        <a href="#" class="float-btn hotline">📞</a>
-        <a href="#" class="float-btn">💬</a> <a href="#" class="float-btn zalo">Zalo</a>
+    <div class="contact-widgets">
+        <a href="tel:0123456789" class="widget-btn btn-call">📞</a>
+        <a href="#" class="widget-btn btn-chat">💬</a>
+        <a href="#" class="widget-btn btn-zalo">Zalo</a>
     </div>
 
 </body>
