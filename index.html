@@ -1,1 +1,319 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thế Giới Xe Điện - Template</title>
+    <style>
+        /* ================= RESET & CƠ BẢN ================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background-color: #f4f4f4;
+            color: #333;
+            padding-bottom: 60px; /* Chừa không gian cho nút nổi dưới cùng */
+        }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
 
+        /* ================= HEADER ================= */
+        header {
+            background-color: #2b2b2b;
+            padding: 10px;
+        }
+        .logo-container {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        /* KIỂM SOÁT LOGO: Đảm bảo không bao giờ phá bố cục */
+        .logo-container img {
+            max-width: 100%;
+            height: auto;
+            max-height: 50px; /* Giới hạn chiều cao cứng */
+            object-fit: contain;
+        }
+        
+        .search-bar {
+            display: flex;
+            margin-bottom: 10px;
+        }
+        .search-bar input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            outline: none;
+        }
+        .search-bar button {
+            background-color: #d70018;
+            color: white;
+            border: none;
+            padding: 0 15px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .header-contact {
+            display: flex;
+            justify-content: space-around;
+            color: #00ff00;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .header-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            border-top: 1px solid #444;
+            padding-top: 10px;
+        }
+        .menu-icon { font-size: 24px; cursor: pointer; }
+        .cart-icon { font-size: 14px; font-weight: bold; }
+        .cart-icon span { background: orange; color: white; border-radius: 50%; padding: 2px 6px; }
+
+        /* ================= DANH MỤC (CUỘN NGANG) ================= */
+        .categories {
+            background-color: #3a3a3a;
+            display: flex;
+            overflow-x: auto;
+            padding: 10px;
+            gap: 15px;
+            color: white;
+            scrollbar-width: none; /* Ẩn scrollbar Firefox */
+        }
+        .categories::-webkit-scrollbar { display: none; } /* Ẩn scrollbar Chrome/Safari */
+        .category-item {
+            text-align: center;
+            min-width: 70px;
+            font-size: 12px;
+        }
+        .category-item img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid #555;
+            margin-bottom: 5px;
+        }
+
+        /* ================= BANNER ================= */
+        .banner-section img {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        /* ================= SẢN PHẨM ================= */
+        .section-title {
+            background: linear-gradient(to right, #8b0000, #d70018);
+            color: white;
+            padding: 10px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+        .section-title span { margin-left: 10px; }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2 cột trên Mobile */
+            gap: 10px;
+            padding: 0 10px;
+        }
+        .product-card {
+            background: white;
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        .product-card img {
+            width: 100%;
+            height: auto;
+            max-height: 150px;
+            object-fit: contain;
+            margin-bottom: 10px;
+        }
+        .product-name {
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            height: 32px;
+            overflow: hidden;
+        }
+        .product-price {
+            color: #d70018;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .product-old-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+        .product-badge {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            background: red;
+            color: white;
+            font-size: 10px;
+            padding: 3px 5px;
+            border-radius: 3px;
+        }
+
+        /* ================= NÚT NỔI (FLOATING BUTTONS) ================= */
+        .floating-right {
+            position: fixed;
+            right: 10px;
+            bottom: 20%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 100;
+        }
+        .float-btn {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: #0084ff; /* Messenger blue */
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            text-decoration: none;
+            font-size: 20px;
+        }
+        .float-btn.zalo { background-color: #0068ff; }
+        .float-btn.hotline { background-color: #ff6600; }
+
+        .btn-tra-gop {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            background: linear-gradient(to bottom, #ff0000, #8b0000);
+            color: yellow;
+            font-weight: bold;
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 2px solid #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+            z-index: 100;
+        }
+
+        /* ================= FOOTER ================= */
+        footer {
+            background-color: #1a1a1a;
+            color: #ccc;
+            padding: 20px 10px;
+            font-size: 13px;
+            line-height: 1.6;
+            margin-top: 20px;
+        }
+        footer h3 { color: white; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <img src="https://via.placeholder.com/300x80?text=THE+GIOI+XE+DIEN" alt="Logo">
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Nhập từ khóa tìm kiếm...">
+            <button>🔍</button>
+        </div>
+        <div class="header-contact">
+            <span>📱 088 638 8888</span>
+            <span>📱 084 978 8888</span>
+        </div>
+        <div class="header-nav">
+            <div class="menu-icon">☰</div>
+            <div class="cart-icon">🛒 Giỏ Hàng <span>0</span></div>
+        </div>
+    </header>
+
+    <div class="categories">
+        <div class="category-item">
+            <img src="https://via.placeholder.com/40/ff0000/fff?text=HOT" alt="Bán chạy">
+            <p>Bán Chạy</p>
+        </div>
+        <div class="category-item">
+            <img src="https://via.placeholder.com/40/800080/fff?text=XD" alt="Xe điện">
+            <p>Xe điện</p>
+        </div>
+        <div class="category-item">
+            <img src="https://via.placeholder.com/40/800080/fff?text=XMD" alt="Xe máy điện">
+            <p>Xe máy điện</p>
+        </div>
+        <div class="category-item">
+            <img src="https://via.placeholder.com/40/800080/fff?text=XDD" alt="Xe đạp điện">
+            <p>Xe đạp điện</p>
+        </div>
+        <div class="category-item">
+            <img src="https://via.placeholder.com/40/800080/fff?text=50" alt="Xe Máy 50cc">
+            <p>Xe Máy 50cc</p>
+        </div>
+    </div>
+
+    <div class="banner-section">
+        <img src="https://via.placeholder.com/800x400/800080/ffffff?text=SUPER+SUMMER+SALE" alt="Khuyến mãi">
+        <img src="https://via.placeholder.com/800x200/f0e6d2/333?text=CUU+HO+TAN+NOI" alt="Cứu hộ">
+    </div>
+
+    <div style="padding: 0 10px;">
+        <div class="section-title">
+            🛡️ <span>XE MÁY ĐIỆN</span>
+        </div>
+    </div>
+
+    <div class="product-grid">
+        <div class="product-card">
+            <div class="product-badge">Xe Không Cần Bằng Lái</div>
+            <img src="https://via.placeholder.com/300x300/eee/999?text=Xe+Dibao+LS007" alt="Xe máy điện">
+            <div class="product-name">Xe Máy Điện Dibao LS007</div>
+            <div class="product-price">23,500,000 Đ</div>
+            <div class="product-old-price">27,590,000 Đ</div>
+            <div style="color: gold; font-size: 12px;">★★★★★</div>
+        </div>
+        
+        <div class="product-card">
+            <div class="product-badge">Xe Không Cần Bằng Lái</div>
+            <img src="https://via.placeholder.com/300x300/eee/999?text=Xe+Dibao+Shine" alt="Xe máy điện">
+            <div class="product-name">Xe Máy Điện Dibao Shine</div>
+            <div class="product-price">23,500,000 Đ</div>
+            <div class="product-old-price">25,490,000 Đ</div>
+            <div style="color: gold; font-size: 12px;">★★★★★</div>
+        </div>
+    </div>
+
+    <footer>
+        <h3>THẾ GIỚI XE ĐIỆN</h3>
+        <p>Công Ty TNHH Thế Giới Xe Đạp Điện</p>
+        <p>MST/ĐKKD/QĐTL: 0106775832</p>
+        <p>Số 264 Tôn Đức Thắng, Phường Ô Chợ Dừa, Tp. Hà Nội</p>
+        <p>Điện thoại: 0422108888</p>
+    </footer>
+
+    <a href="#" class="btn-tra-gop">MUA TRẢ GÓP</a>
+    
+    <div class="floating-right">
+        <a href="#" class="float-btn hotline">📞</a>
+        <a href="#" class="float-btn">💬</a> <a href="#" class="float-btn zalo">Zalo</a>
+    </div>
+
+</body>
+</html>
